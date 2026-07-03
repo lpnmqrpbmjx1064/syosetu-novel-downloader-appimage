@@ -69,7 +69,7 @@ APPDIR="$(dirname "$(readlink -f "$0")")"
 export PYTHONHOME="${APPDIR}/usr"
 export PYTHONNOUSERSITE=1
 export PATH="${APPDIR}/usr/bin:${PATH}"
-export QT_QPA_PLATFORM="${QT_QPA_PLATFORM:-wayland}"
+export QT_QPA_PLATFORM="${QT_QPA_PLATFORM:-wayland;xcb}"
 export XDG_CURRENT_DESKTOP=KDE
 
 exec "${APPDIR}/usr/bin/python3" -m syosetu_app "$@"
