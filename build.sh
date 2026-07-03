@@ -60,6 +60,10 @@ cp upstream/mian.py "${MODULE}/"
 cp upstream/custom_typing.py "${MODULE}/"
 cp upstream/LICENSE "${MODULE}/"
 
+# Patch imports for package-internal use (absolute → relative)
+sed -i 's/^from custom_typing import/from .custom_typing import/' "${MODULE}/syosetu.py"
+sed -i 's/^from syosetu import/from .syosetu import/' "${MODULE}/mian.py"
+
 # Copy converters
 cp upstream/converters/__init__.py "${MODULE}/converters/"
 cp upstream/converters/txt2epub.py "${MODULE}/converters/"
